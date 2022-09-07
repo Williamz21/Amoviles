@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     var number: Int = 0
@@ -44,14 +43,15 @@ class MainActivity : AppCompatActivity() {
 
         btNo.setOnClickListener {
             if (questions[number].answer) {
-                Toast.makeText(this,"Correcto",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Incorrecto",Toast.LENGTH_LONG).show()
             }
-            else Toast.makeText(this,"Incorrecto",Toast.LENGTH_LONG).show()
+            else Toast.makeText(this,"Correcto",Toast.LENGTH_LONG).show()
         }
 
         btNext.setOnClickListener {
             number++
             if(number>questions.size) number = 0
+            questionShow.text = questions[number].sentence
         }
 
     }
